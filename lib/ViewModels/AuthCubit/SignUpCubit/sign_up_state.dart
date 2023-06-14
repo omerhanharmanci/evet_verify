@@ -18,5 +18,6 @@ class SignUpErrorState extends SignUpState {
 }
 
 class SignUpDoneState extends SignUpState {
-  const SignUpDoneState();
+  const SignUpDoneState(this.model);
+  final UserResponseModel model;
 }

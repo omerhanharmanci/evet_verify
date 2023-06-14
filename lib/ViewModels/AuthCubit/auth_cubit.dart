@@ -17,4 +17,5 @@ class AuthCubit extends Cubit<AuthState> {
 
   
   void goSignInPage() => emit(const AuthSignInState());
+
 }

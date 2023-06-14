@@ -1,4 +1,5 @@
 import 'package:event_verify/ViewModels/AuthCubit/SignUpCubit/sign_up_cubit.dart';
+import 'package:event_verify/ViewModels/InitCubit/init_cubit.dart';
 import 'package:event_verify/Views/Auth/SignUp/sign_up_form.dart';
 import 'package:event_verify/Widgets/app_circular_progress_indicator.dart';
 import 'package:event_verify/Widgets/error_widget.dart';
@@ -23,6 +24,7 @@ class SignUpBuilder extends StatelessWidget {
     }else if(state is SignUpFormState){
       return const SignUpForm();
     }else if(state is SignUpDoneState){
+      context.read<InitCubit>().goHome(state.model);
       return const AppErrorWidget(message: "GİRİŞ BAŞARILI");
     }
     else {

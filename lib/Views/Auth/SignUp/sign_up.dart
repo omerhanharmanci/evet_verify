@@ -17,6 +17,8 @@ class _SignUpState extends State<SignUp> {
 
   final TextEditingController _passwordController = TextEditingController();
 
+  final TextEditingController _userNameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -24,6 +26,7 @@ class _SignUpState extends State<SignUp> {
         _formKey,
         _emailController,
         _passwordController,
+        _userNameController,
       ),
       child: const SignUpBuilder(),
     );
@@ -35,6 +38,7 @@ class _SignUpState extends State<SignUp> {
     _formKey.currentState?.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _userNameController.dispose();
     debugPrint("SİGNUP KAPATILDI");
   }
 }

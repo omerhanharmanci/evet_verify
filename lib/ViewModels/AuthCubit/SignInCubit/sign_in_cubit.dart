@@ -1,3 +1,7 @@
+import 'package:event_verify/Models/user_response_model.dart';
+import 'package:event_verify/Models/user_sign_in_model.dart';
+import 'package:event_verify/Services/auth_base_service.dart';
+import 'package:event_verify/Services/auth_firebase_service.dart';
 import 'package:event_verify/Views/Auth/SignUp/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,11 +15,15 @@ class SignInCubit extends Cubit<SignInState> {
   final GlobalKey<FormState> formKey;
   final TextEditingController emailController;
   final TextEditingController passwordController;
+  final AuthBaseService _auth = AuthFirebaseService();
 
-  loginOnPressed() {
+  void loginOnPressed() async {
     if (formKey.currentState!.validate()) {
-      debugPrint(emailController.text);
-      debugPrint(passwordController.text);
+      emit(const SignInBusyState());
+      final email = emailController.text;
+      final password = passwordController.text;
+      final model = UserSignInModel(email, password);
+      await _signInWithEmailAndPassword(model);
     }
     emailController.clear();
     passwordController.clear();
@@ -25,5 +33,15 @@ class SignInCubit extends Cubit<SignInState> {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => const SignUp(),
     ));
+  }
+
+  Future<void> _signInWithEmailAndPassword(UserSignInModel model) async {
+    try {
+      var user = await _auth.signInWhithEmailAndPassword(model);
+      emit(SignInDoneState(user));
+    } catch (err) {
+      debugPrint(err.toString());
+      emit(SignInErrorState(err.toString()));
+    }
   }
 }

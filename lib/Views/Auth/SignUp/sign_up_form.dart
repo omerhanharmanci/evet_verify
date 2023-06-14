@@ -18,6 +18,11 @@ class SignUpForm extends StatelessWidget {
             height: height * 0.2,
           ),
           AppTextFormField(
+            labelText: "KULLANICI ADI",
+            hintText: "LÜTFEN KULLANICI ADINIZI GİRİNİZ",
+            controller: context.read<SignUpCubit>().userNameController,
+          ),
+          AppTextFormField(
             labelText: "EMAİL",
             hintText: "LÜTFEN EMAİL İNİZİ GİRİNİZ",
             controller: context.read<SignUpCubit>().emailController,

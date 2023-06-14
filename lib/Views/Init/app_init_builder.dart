@@ -22,7 +22,7 @@ class AppInitBuilder extends StatelessWidget {
     } else if (state is InitErrorState) {
       return Scaffold(body: AppErrorWidget(message: state.message!));
     } else if (state is InitDoneState) {
-      return state.token == null ? const Auth() : const Home();
+      return state.model == null ? const Auth() : const Home();
     } else {
       return const Scaffold(
         body: AppErrorWidget(message: "BİLİNMEYEN HATA OLUŞTU"),

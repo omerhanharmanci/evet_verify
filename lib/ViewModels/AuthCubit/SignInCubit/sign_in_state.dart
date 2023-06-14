@@ -18,5 +18,7 @@ class SignInErrorState extends SignInState{
 }
 
 class SignInDoneState extends SignInState {
-  const SignInDoneState();
+  final UserResponseModel model;
+  const SignInDoneState(this.model);
 }
+

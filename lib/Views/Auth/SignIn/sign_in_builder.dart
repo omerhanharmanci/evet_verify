@@ -1,4 +1,5 @@
 import 'package:event_verify/ViewModels/AuthCubit/SignInCubit/sign_in_cubit.dart';
+import 'package:event_verify/ViewModels/InitCubit/init_cubit.dart';
 import 'package:event_verify/Views/Auth/SignIn/sign_in_form.dart';
 import 'package:event_verify/Widgets/app_circular_progress_indicator.dart';
 import 'package:event_verify/Widgets/error_widget.dart';
@@ -22,7 +23,11 @@ class SignInBuilder extends StatelessWidget {
       return AppErrorWidget(message: state.message);
     } else if (state is SignInFormState) {
       return const SignInForm();
-    } else {
+    } else if(state is SignInDoneState){
+      context.read<InitCubit>().goHome(state.model);
+      return const AppErrorWidget(message: "GİRİŞ BAŞARILI");
+    } 
+    else {
       return const AppErrorWidget(message: "bilinmeyen hata");
     }
   }

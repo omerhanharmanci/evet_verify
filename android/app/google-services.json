@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "551496135235",
+    "project_id": "event-verfiy-project",
+    "storage_bucket": "event-verfiy-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551496135235:android:5ac44e6a42207d8abf5af6",
+        "android_client_info": {
+          "package_name": "com.omerhanharmanci.event_verify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551496135235-nhm7jnnb241s9lsaoc21v6fqluuh4mgs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXd25Ul-RTwloen4ejrGCQR8QAIiwmR5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551496135235-nhm7jnnb241s9lsaoc21v6fqluuh4mgs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

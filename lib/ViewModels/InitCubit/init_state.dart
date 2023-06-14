@@ -2,6 +2,7 @@ part of 'init_cubit.dart';
 
 abstract class InitState {
   const InitState();
+
 }
 
 class InitInitialState extends InitState {
@@ -14,8 +15,8 @@ class InitBusyState extends InitState {
 }
 
 class InitDoneState extends InitState {
-  final UserTokenModel? token;
-  const InitDoneState(this.token);
+  final UserResponseModel? model;
+  const InitDoneState(this.model);
 }
 
 class InitErrorState extends InitState {
